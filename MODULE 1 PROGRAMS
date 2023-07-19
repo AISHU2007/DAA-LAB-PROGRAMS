@@ -149,3 +149,23 @@ int main() {
   printf("Sorted Array in Ascending Order:\n");
   printArray(data, size);
 }
+
+ALGORITHM FOR BUBBLE SORT:
+Step1: for k = 0 to n-1 repeat Step 2
+
+Step2: for j = k + 1 to n – k repeat
+
+Step3: if A[j] > A[k]
+
+             Swap A[j] and A[k]
+
+             [end of inner for loop]
+
+             [end if outer for loop]
+
+Step4: end
+
+ TIME COMPLEXITY FOR BUBBLE SORT:
+Best Case: O(n)
+Worst Case: O(n2)
+Average Case: O(n2)
