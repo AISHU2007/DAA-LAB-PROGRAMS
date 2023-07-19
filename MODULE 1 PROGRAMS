@@ -35,7 +35,7 @@ int main()
 	return 0;
 }
 
-ALGORITHM OF INSERTION SORT:
+* ALGORITHM OF INSERTION SORT:
 Step 1 - If the element is the first element, assume that it is already sorted. Return 1.
 
 Step2 - Pick the next element, and store it separately in a key.
@@ -48,7 +48,7 @@ Step 5 - Insert the value.
 
 Step 6 - Repeat until the array is sorted.
 
-TIME COMPLEXITY FOR INSERTION SORT:
+* TIME COMPLEXITY FOR INSERTION SORT:
 Best Case: O(n)
 Worst Case: O(n2)
 Average Case: 	O(n2)
@@ -85,7 +85,7 @@ int main() {
   printArray(data, size);
 }
 
-ALGORITHM FOR SELECTION SORT:
+* ALGORITHM FOR SELECTION SORT:
 
 Step 1: Set Min to location 0 in Step 1.
 
@@ -97,31 +97,17 @@ Step 4: Increase Min to point to the next element
 
 Step 5: Continue until the list is sorted.
 
-TIME COMPLEXITY FOR SELECTION SORT:
+* TIME COMPLEXITY FOR SELECTION SORT:
 Best Case: O(n2)
 Worst Case: O(n2)
 Average Case: O(n2)
 
 3) BUBBLE SORT PROGRAM:
- // Bubble sort in C
-
 #include <stdio.h>
-
-// perform the bubble sort
 void bubbleSort(int array[], int size) {
-
-  // loop to access each array element
   for (int step = 0; step < size - 1; ++step) {
-      
-    // loop to compare array elements
     for (int i = 0; i < size - step - 1; ++i) {
-      
-      // compare two adjacent elements
-      // change > to < to sort in descending order
       if (array[i] > array[i + 1]) {
-        
-        // swapping occurs if elements
-        // are not in the intended order
         int temp = array[i];
         array[i] = array[i + 1];
         array[i + 1] = temp;
@@ -129,8 +115,6 @@ void bubbleSort(int array[], int size) {
     }
   }
 }
-
-// print array
 void printArray(int array[], int size) {
   for (int i = 0; i < size; ++i) {
     printf("%d  ", array[i]);
@@ -141,16 +125,14 @@ void printArray(int array[], int size) {
 int main() {
   int data[] = {-2, 45, 0, 11, -9};
   
-  // find the array's length
   int size = sizeof(data) / sizeof(data[0]);
 
   bubbleSort(data, size);
-  
-  printf("Sorted Array in Ascending Order:\n");
+   printf("Sorted Array in Ascending Order:\n");
   printArray(data, size);
 }
 
-ALGORITHM FOR BUBBLE SORT:
+* ALGORITHM FOR BUBBLE SORT:
 Step1: for k = 0 to n-1 repeat Step 2
 
 Step2: for j = k + 1 to n – k repeat
@@ -162,28 +144,22 @@ Step3: if A[j] > A[k]
              [end of inner for loop]
 
              [end if outer for loop]
-
 Step4: end
 
- TIME COMPLEXITY FOR BUBBLE SORT:
+* TIME COMPLEXITY FOR BUBBLE SORT:
 Best Case: O(n)
 Worst Case: O(n2)
 Average Case: O(n2)
 
 4) LINEAR SEARCH PROGRAM:
-// Linear Search in C
-
 #include <stdio.h>
-
 int search(int array[], int n, int x) {
-  
-  // Going through array sequencially
+
   for (int i = 0; i < n; i++)
     if (array[i] == x)
       return i;
   return -1;
 }
-
 int main() {
   int array[] = {2, 4, 0, 1, 9};
   int x = 1;
@@ -194,7 +170,7 @@ int main() {
   (result == -1) ? printf("Element not found") : printf("Element found at index: %d", result);
 }
 
-ALGORITHM FOR LINEAR SEARCH:
+* ALGORITHM FOR LINEAR SEARCH:
 Step 1: Start 
 Step 2: Declare an array, and search data variable-x.
 Step 3: Traverse the entire array until search data is found.
@@ -205,9 +181,39 @@ Step 3: Traverse the entire array until search data is found.
 Step 4: print data 
 Step 5: Stop
 
-TIME COMPLEXITY FOR LINEAR SEARCH:
+* TIME COMPLEXITY FOR LINEAR SEARCH:
 Best Case: O (1)
 Average Case: O (n)
 Worst Case: O (n)
 
-5) 
+5) GCD OF NUMBERS USING EUCLIDEAN FORMULA:
+#include <stdio.h>
+int gcd(int a, int b)
+{
+	if (a == 0)
+		return b;
+	return gcd(b % a, a);
+}
+int main()
+{
+	int a = 60, b = 25;
+	printf("GCD(%d, %d) = %d\n", a, b, gcd(a, b));
+	a = 35, b = 10;
+	printf("GCD(%d, %d) = %d\n", a, b, gcd(a, b));
+	a = 31, b = 2;
+	printf("GCD(%d, %d) = %d\n", a, b, gcd(a, b));
+	return 0;
+}
+
+* ALGORITHM FOR GCD OF 2 NUMBERS:
+Step 1:  Let  a, b  be the two numbers
+Step 2:  a mod b = R
+Step 3:  Let  a = b  and  b = R
+Step 4:  Repeat Steps 2 and 3 until  a mod b  is greater than 0
+Step 5:  GCD = b
+Step 6: Finish
+
+* TIME COMPLEXITY FOR GCD OF 2 NUMBERS:
+Worst Case: O(log(min(A,B))
+Average Case: O(log A)
+Best Case: O(1)
