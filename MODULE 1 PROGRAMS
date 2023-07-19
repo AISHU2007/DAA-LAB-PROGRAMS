@@ -87,4 +87,17 @@ int main() {
 
 ALGORITHM FOR SELECTION SORT:
 
+Step 1: Set Min to location 0 in Step 1.
 
+Step 2: Look for the smallest element on the list.
+
+Step 3: Replace the value at location Min with a different value.
+
+Step 4: Increase Min to point to the next element
+
+Step 5: Continue until the list is sorted.
+
+TIME COMPLEXITY FOR SELECTION SORT:
+Best Case: O(n2)
+Worst Case: O(n2)
+Average Case: O(n2)
