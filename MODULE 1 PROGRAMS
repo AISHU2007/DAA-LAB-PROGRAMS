@@ -36,5 +36,55 @@ int main()
 }
 
 ALGORITHM OF INSERTION SORT:
+Step 1 - If the element is the first element, assume that it is already sorted. Return 1.
+
+Step2 - Pick the next element, and store it separately in a key.
+
+Step3 - Now, compare the key with all elements in the sorted array.
+
+Step 4 - If the element in the sorted array is smaller than the current element, then move to the next element. Else, shift greater elements in the array towards the right.
+
+Step 5 - Insert the value.
+
+Step 6 - Repeat until the array is sorted.
+
+TIME COMPLEXITY FOR INSERTION SORT:
+Best Case: O(n)
+Worst Case: O(n2)
+Average Case: 	O(n2)
+
+2) SELECTION SORT PROGRAM:
+#include <stdio.h>
+void swap(int *a, int *b) {
+  int temp = *a;
+  *a = *b;
+  *b = temp;
+}
+
+void selectionSort(int array[], int size) {
+  for (int step = 0; step < size - 1; step++) {
+    int min_idx = step;
+    for (int i = step + 1; i < size; i++) {
+      if (array[i] < array[min_idx])
+        min_idx = i;
+    }
+    swap(&array[min_idx], &array[step]);
+  }
+}
+void printArray(int array[], int size) {
+  for (int i = 0; i < size; ++i) {
+    printf("%d  ", array[i]);
+  }
+  printf("\n");
+}
+int main() {
+  int data[] = {20, 12, 10, 15, 2};
+  int size = sizeof(data) / sizeof(data[0]);
+  selectionSort(data, size);
+  printf("Sorted array in Acsending Order:\n");
+  printArray(data, size);
+}
+
+ALGORITHM FOR SELECTION SORT:
 
 
