@@ -206,3 +206,8 @@ Step 4: print data
 Step 5: Stop
 
 TIME COMPLEXITY FOR LINEAR SEARCH:
+Best Case: O (1)
+Average Case: O (n)
+Worst Case: O (n)
+
+5) 
