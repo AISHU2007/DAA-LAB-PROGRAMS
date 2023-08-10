@@ -9,62 +9,57 @@ or accept user input, sort them, and display the sorted list of names.
 
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-// Function to swap two names
-void swap(char arr[][100], int a, int b) {
-    char temp[100];
-    strcpy(temp, arr[a]);
-    strcpy(arr[a], arr[b]);
-    strcpy(arr[b], temp);
+void swap(char** a, char** b) {
+    char* temp = *a;
+    *a = *b;
+    *b = temp;
 }
 
-// Function to perform partitioning for quicksort
-int partition(char arr[][100], int s, int e) {
-    char pivot[100];
-    strcpy(pivot, arr[e]);
-    int pIndex = s;
+int partition(char** names, int low, int high) {
+    char* pivot = names[high];
+    int i = low - 1;
 
-    for (int i = s; i < e; i++) {
-        if (strcmp(arr[i], pivot) <= 0) {
-            swap(arr, i, pIndex);
-            pIndex++;
+    for (int j = low; j <= high - 1; j++) {
+        if (strcmp(names[j], pivot) < 0) {
+            i++;
+            swap(&names[i], &names[j]);
         }
     }
-    swap(arr, e, pIndex);
-    return pIndex;
+    swap(&names[i + 1], &names[high]);
+    return i + 1;
 }
 
-// Function to implement quicksort
-void quickSort(char arr[][100], int s, int e) {
-    if (s < e) {
-        int p = partition(arr, s, e);
-        quickSort(arr, s, p - 1);
-        quickSort(arr, p + 1, e);
+void quickSort(char** names, int low, int high) {
+    if (low < high) {
+        int pi = partition(names, low, high);
+        quickSort(names, low, pi - 1);
+        quickSort(names, pi + 1, high);
     }
 }
 
 int main() {
-    int n;
-    printf("Enter the number of names in the attendance register: ");
-    scanf("%d", &n);
+    int num_names;
+    printf("Enter the number of names: ");
+    scanf("%d", &num_names);
 
-    char names[n][100];
-
-    // Reading names from user input
-    printf("Enter the names:\n");
-    for (int i = 0; i < n; i++) {
+    char** names = (char*)malloc(num_names * sizeof(char));
+    for (int i = 0; i < num_names; i++) {
+        names[i] = (char*)malloc(100 * sizeof(char));
+        printf("Enter name %d: ", i + 1);
         scanf("%s", names[i]);
     }
 
-    // Sorting the names using quicksort
-    quickSort(names, 0, n - 1);
+    quickSort(names, 0, num_names - 1);
 
-    // Displaying the sorted names
-    printf("\nSorted names:\n");
-    for (int i = 0; i < n; i++) {
+    printf("\nSorted list of names:\n");
+    for (int i = 0; i < num_names; i++) {
         printf("%s\n", names[i]);
+        free(names[i]);
     }
+    free(names);
 
     return 0;
 }
