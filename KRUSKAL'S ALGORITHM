@@ -1,7 +1,5 @@
 #include<stdio.h>
- 
 #define MAX 30
- 
 typedef struct edge
 {
 int u,v,w;
@@ -12,9 +10,7 @@ typedef struct edgelist
 edge data[MAX];
 int n;
 }edgelist;
- 
-edgelist elist;
- 
+edgelist elist; 
 int G[MAX][MAX],n;
 edgelist spanlist;
  
